@@ -1,0 +1,34 @@
+# 忽略编译生成文件
+/bin/
+/obj/
+*.exe
+*.dll
+*.pdb
+
+# 忽略 IDE/编辑器文件
+.vscode/
+.idea/
+*.suo
+*.user
+
+# 忽略日志和缓存
+*.log
+*.tmp
+*.cache
+
+# 忽略环境配置文件（如 .env）
+.env
+*.secret
+
+# 忽略特定操作系统文件
+.DS_Store
+Thumbs.db
+
+# 忽略AI生成的内容
+.claude
+.cursor
+.codex
+.qwen
+.codex
+.trae-cn
+AGENTS.md

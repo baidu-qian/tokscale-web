@@ -1,0 +1,3048 @@
+{
+  "meta": {
+    "generatedAt": "2026-04-02T10:20:45.769930282+00:00",
+    "version": "2.0.0",
+    "dateRange": {
+      "start": "2025-09-29",
+      "end": "2026-04-02"
+    }
+  },
+  "summary": {
+    "totalTokens": 866231550,
+    "totalCost": 381.66530442500004,
+    "totalDays": 42,
+    "activeDays": 38,
+    "averagePerDay": 10.043823800657895,
+    "maxCostInSingleDay": 80.75832050000001,
+    "clients": [
+      "claude",
+      "codex",
+      "gemini",
+      "openclaw",
+      "opencode",
+      "qwen",
+      "roocode"
+    ],
+    "models": [
+      "<synthetic>",
+      "anthropic/claude-sonnet-4-6",
+      "ark-code-latest",
+      "claude-haiku-4-5",
+      "claude-opus-4-6",
+      "claude-sonnet-4-6",
+      "coder-model",
+      "delivery-mirror",
+      "doubao-seed-2.0-code",
+      "doubao-seed-code",
+      "gateway-injected",
+      "gemini-3-pro-preview",
+      "gemini-3.1-pro-preview",
+      "glm-4.5-air",
+      "glm-4.7",
+      "glm-5.1",
+      "gpt-5-codex",
+      "gpt-5-nano",
+      "gpt-5.1-codex-mini",
+      "gpt-5.2-chat-latest",
+      "gpt-5.3-codex",
+      "gpt-5.4",
+      "gpt-5.4-mini",
+      "kimi-k2.5",
+      "minimax-m2.1-free",
+      "minimax-m2.5",
+      "minimax/minimax-m2.1",
+      "openai/gpt-5.4",
+      "qwen3-coder-plus"
+    ]
+  },
+  "years": [
+    {
+      "year": "2025",
+      "totalTokens": 23690450,
+      "totalCost": 8.798997400000001,
+      "range": {
+        "start": "2025-09-29",
+        "end": "2025-10-23"
+      }
+    },
+    {
+      "year": "2026",
+      "totalTokens": 842541100,
+      "totalCost": 372.8663070250001,
+      "range": {
+        "start": "2026-01-19",
+        "end": "2026-04-02"
+      }
+    }
+  ],
+  "contributions": [
+    {
+      "date": "2025-09-29",
+      "totals": {
+        "tokens": 519603,
+        "cost": 0.35589515,
+        "messages": 22
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 512621,
+        "output": 6982,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "roocode",
+          "modelId": "qwen3-coder-plus",
+          "providerId": "openai",
+          "tokens": {
+            "input": 512621,
+            "output": 6982,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.35589515,
+          "messages": 22
+        }
+      ]
+    },
+    {
+      "date": "2025-10-15",
+      "totals": {
+        "tokens": 4053042,
+        "cost": 1.7597830000000003,
+        "messages": 156
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 247740,
+        "output": 64694,
+        "cacheRead": 3706624,
+        "cacheWrite": 0,
+        "reasoning": 33984
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 247740,
+            "output": 64694,
+            "cacheRead": 3706624,
+            "cacheWrite": 0,
+            "reasoning": 33984
+          },
+          "cost": 1.7597830000000003,
+          "messages": 156
+        }
+      ]
+    },
+    {
+      "date": "2025-10-16",
+      "totals": {
+        "tokens": 16856344,
+        "cost": 5.203039,
+        "messages": 304
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 507308,
+        "output": 162412,
+        "cacheRead": 16093312,
+        "cacheWrite": 0,
+        "reasoning": 93312
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 507308,
+            "output": 162412,
+            "cacheRead": 16093312,
+            "cacheWrite": 0,
+            "reasoning": 93312
+          },
+          "cost": 5.203039,
+          "messages": 304
+        }
+      ]
+    },
+    {
+      "date": "2025-10-17",
+      "totals": {
+        "tokens": 501767,
+        "cost": 0.39731350000000004,
+        "messages": 38
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 62022,
+        "output": 16833,
+        "cacheRead": 412928,
+        "cacheWrite": 0,
+        "reasoning": 9984
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 62022,
+            "output": 16833,
+            "cacheRead": 412928,
+            "cacheWrite": 0,
+            "reasoning": 9984
+          },
+          "cost": 0.39731350000000004,
+          "messages": 38
+        }
+      ]
+    },
+    {
+      "date": "2025-10-20",
+      "totals": {
+        "tokens": 625486,
+        "cost": 0.29790649999999996,
+        "messages": 45
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 51106,
+        "output": 10860,
+        "cacheRead": 557952,
+        "cacheWrite": 0,
+        "reasoning": 5568
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 51106,
+            "output": 10860,
+            "cacheRead": 557952,
+            "cacheWrite": 0,
+            "reasoning": 5568
+          },
+          "cost": 0.29790649999999996,
+          "messages": 45
+        }
+      ]
+    },
+    {
+      "date": "2025-10-21",
+      "totals": {
+        "tokens": 319201,
+        "cost": 0.27456,
+        "messages": 25
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 32952,
+        "output": 11497,
+        "cacheRead": 266240,
+        "cacheWrite": 0,
+        "reasoning": 8512
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 32952,
+            "output": 11497,
+            "cacheRead": 266240,
+            "cacheWrite": 0,
+            "reasoning": 8512
+          },
+          "cost": 0.27456,
+          "messages": 25
+        }
+      ]
+    },
+    {
+      "date": "2025-10-23",
+      "totals": {
+        "tokens": 815007,
+        "cost": 0.51050025,
+        "messages": 59
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 46221,
+        "output": 21778,
+        "cacheRead": 732672,
+        "cacheWrite": 0,
+        "reasoning": 14336
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 46221,
+            "output": 21778,
+            "cacheRead": 732672,
+            "cacheWrite": 0,
+            "reasoning": 14336
+          },
+          "cost": 0.51050025,
+          "messages": 59
+        }
+      ]
+    },
+    {
+      "date": "2026-01-19",
+      "totals": {
+        "tokens": 13557,
+        "cost": 0.005208735,
+        "messages": 2
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 88,
+        "output": 153,
+        "cacheRead": 517,
+        "cacheWrite": 12799,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "opencode",
+          "modelId": "minimax-m2.1-free",
+          "providerId": "opencode",
+          "tokens": {
+            "input": 88,
+            "output": 153,
+            "cacheRead": 517,
+            "cacheWrite": 12799,
+            "reasoning": 0
+          },
+          "cost": 0.005208735,
+          "messages": 1
+        },
+        {
+          "client": "opencode",
+          "modelId": "gpt-5.2-chat-latest",
+          "providerId": "openai",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-01-22",
+      "totals": {
+        "tokens": 143989,
+        "cost": 0.038693935,
+        "messages": 10
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 27729,
+        "output": 1789,
+        "cacheRead": 72247,
+        "cacheWrite": 42023,
+        "reasoning": 201
+      },
+      "clients": [
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "zhipuai-coding-plan",
+          "tokens": {
+            "input": 25714,
+            "output": 394,
+            "cacheRead": 975,
+            "cacheWrite": 0,
+            "reasoning": 201
+          },
+          "cost": 0.01684465,
+          "messages": 2
+        },
+        {
+          "client": "opencode",
+          "modelId": "minimax-m2.1-free",
+          "providerId": "opencode",
+          "tokens": {
+            "input": 2015,
+            "output": 1395,
+            "cacheRead": 71272,
+            "cacheWrite": 42023,
+            "reasoning": 0
+          },
+          "cost": 0.021849285,
+          "messages": 8
+        }
+      ]
+    },
+    {
+      "date": "2026-01-27",
+      "totals": {
+        "tokens": 25742,
+        "cost": 0.015354159999999999,
+        "messages": 4
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 24524,
+        "output": 131,
+        "cacheRead": 976,
+        "cacheWrite": 0,
+        "reasoning": 111
+      },
+      "clients": [
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "zhipuai-coding-plan",
+          "tokens": {
+            "input": 24524,
+            "output": 131,
+            "cacheRead": 976,
+            "cacheWrite": 0,
+            "reasoning": 111
+          },
+          "cost": 0.015354159999999999,
+          "messages": 2
+        },
+        {
+          "client": "opencode",
+          "modelId": "minimax-m2.1-free",
+          "providerId": "opencode",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-01-29",
+      "totals": {
+        "tokens": 132890,
+        "cost": 0.03751035,
+        "messages": 11
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 115677,
+        "output": 1958,
+        "cacheRead": 15255,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "minimax/minimax-m2.1",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 115677,
+            "output": 1958,
+            "cacheRead": 15255,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.03751035,
+          "messages": 11
+        }
+      ]
+    },
+    {
+      "date": "2026-02-02",
+      "totals": {
+        "tokens": 327271,
+        "cost": 0.04028780999999999,
+        "messages": 25
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 100271,
+        "output": 2903,
+        "cacheRead": 224097,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "minimax/minimax-m2.1",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 100271,
+            "output": 2903,
+            "cacheRead": 224097,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.04028780999999999,
+          "messages": 25
+        }
+      ]
+    },
+    {
+      "date": "2026-02-03",
+      "totals": {
+        "tokens": 204429,
+        "cost": 0.01291473,
+        "messages": 15
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 15056,
+        "output": 2322,
+        "cacheRead": 187051,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "minimax/minimax-m2.1",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 15056,
+            "output": 2322,
+            "cacheRead": 187051,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.01291473,
+          "messages": 15
+        }
+      ]
+    },
+    {
+      "date": "2026-02-27",
+      "totals": {
+        "tokens": 9377907,
+        "cost": 1.4827790250000001,
+        "messages": 124
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 4782870,
+        "output": 55201,
+        "cacheRead": 4537745,
+        "cacheWrite": 0,
+        "reasoning": 2091
+      },
+      "clients": [
+        {
+          "client": "qwen",
+          "modelId": "coder-model",
+          "providerId": "qwen",
+          "tokens": {
+            "input": 4782870,
+            "output": 55201,
+            "cacheRead": 4537745,
+            "cacheWrite": 0,
+            "reasoning": 2091
+          },
+          "cost": 1.4827790250000001,
+          "messages": 124
+        }
+      ]
+    },
+    {
+      "date": "2026-03-02",
+      "totals": {
+        "tokens": 1811265,
+        "cost": 2.8574189000000003,
+        "messages": 52
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 1214726,
+        "output": 36250,
+        "cacheRead": 551168,
+        "cacheWrite": 0,
+        "reasoning": 9121
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5.3-codex",
+          "providerId": "fox",
+          "tokens": {
+            "input": 1214726,
+            "output": 36250,
+            "cacheRead": 551168,
+            "cacheWrite": 0,
+            "reasoning": 9121
+          },
+          "cost": 2.8574189000000003,
+          "messages": 52
+        }
+      ]
+    },
+    {
+      "date": "2026-03-04",
+      "totals": {
+        "tokens": 30595418,
+        "cost": 19.74128889,
+        "messages": 576
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 6763347,
+        "output": 118578,
+        "cacheRead": 21652007,
+        "cacheWrite": 2050277,
+        "reasoning": 11209
+      },
+      "clients": [
+        {
+          "client": "qwen",
+          "modelId": "glm-4.7",
+          "providerId": "qwen",
+          "tokens": {
+            "input": 11573,
+            "output": 165,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 157
+          },
+          "cost": 0.0076522,
+          "messages": 1
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 18808,
+            "output": 55059,
+            "cacheRead": 20089184,
+            "cacheWrite": 2050277,
+            "reasoning": 0
+          },
+          "cost": 14.597602949999999,
+          "messages": 362
+        },
+        {
+          "client": "claude",
+          "modelId": "doubao-seed-code",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 770,
+            "output": 66,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-haiku-4-5",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 11909,
+            "output": 1385,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.018834,
+          "messages": 7
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.3-codex",
+          "providerId": "fox",
+          "tokens": {
+            "input": 741721,
+            "output": 20996,
+            "cacheRead": 398848,
+            "cacheWrite": 0,
+            "reasoning": 5811
+          },
+          "cost": 1.7431081499999999,
+          "messages": 40
+        },
+        {
+          "client": "claude",
+          "modelId": "kimi-k2.5",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 395561,
+            "output": 7148,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.25878059999999997,
+          "messages": 20
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 882225,
+            "output": 2789,
+            "cacheRead": 878912,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.22178509999999999,
+          "messages": 26
+        },
+        {
+          "client": "openclaw",
+          "modelId": "minimax/minimax-m2.1",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 43724,
+            "output": 2041,
+            "cacheRead": 285063,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.02411829,
+          "messages": 16
+        },
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider, zhipuai-coding-plan",
+          "tokens": {
+            "input": 4657056,
+            "output": 28929,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 5241
+          },
+          "cost": 2.8694076000000006,
+          "messages": 103
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "totals": {
+        "tokens": 30224847,
+        "cost": 4.969952449999999,
+        "messages": 696
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 13208447,
+        "output": 68070,
+        "cacheRead": 16751425,
+        "cacheWrite": 196905,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "claude",
+          "modelId": "claude-haiku-4-5",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 4744,
+            "output": 519,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.007339,
+          "messages": 2
+        },
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 225
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 2922,
+            "output": 5269,
+            "cacheRead": 2510201,
+            "cacheWrite": 196905,
+            "reasoning": 0
+          },
+          "cost": 1.57925505,
+          "messages": 55
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 13200781,
+            "output": 62282,
+            "cacheRead": 14241224,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 3.3833583999999997,
+          "messages": 413
+        },
+        {
+          "client": "openclaw",
+          "modelId": "gateway-injected",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "totals": {
+        "tokens": 30089795,
+        "cost": 6.9871314999999985,
+        "messages": 592
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 20358890,
+        "output": 91732,
+        "cacheRead": 9600260,
+        "cacheWrite": 32645,
+        "reasoning": 6268
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 14717679,
+            "output": 58545,
+            "cacheRead": 9597352,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 3.452675899999999,
+          "messages": 393
+        },
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider, zhipuai-coding-plan",
+          "tokens": {
+            "input": 117474,
+            "output": 966,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 723
+          },
+          "cost": 0.0742002,
+          "messages": 7
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 108,
+            "output": 895,
+            "cacheRead": 2908,
+            "cacheWrite": 32645,
+            "reasoning": 0
+          },
+          "cost": 0.13704015,
+          "messages": 3
+        },
+        {
+          "client": "opencode",
+          "modelId": "ark-code-latest",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 44156,
+            "output": 2301,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0099817,
+          "messages": 2
+        },
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 82
+        },
+        {
+          "client": "qwen",
+          "modelId": "glm-4.7",
+          "providerId": "qwen",
+          "tokens": {
+            "input": 13553,
+            "output": 634,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 425
+          },
+          "cost": 0.0104616,
+          "messages": 1
+        },
+        {
+          "client": "opencode",
+          "modelId": "gpt-5-nano",
+          "providerId": "opencode",
+          "tokens": {
+            "input": 54883,
+            "output": 8201,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 5120
+          },
+          "cost": 0.00807255,
+          "messages": 3
+        },
+        {
+          "client": "openclaw",
+          "modelId": "glm-4.7",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 5405746,
+            "output": 19639,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 3.2866533999999996,
+          "messages": 97
+        },
+        {
+          "client": "opencode",
+          "modelId": "gemini-3-pro-preview",
+          "providerId": "google",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-haiku-4-5",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 5291,
+            "output": 551,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.008046,
+          "messages": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "totals": {
+        "tokens": 15236210,
+        "cost": 6.2627695999999995,
+        "messages": 344
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 14166291,
+        "output": 73837,
+        "cacheRead": 961571,
+        "cacheWrite": 34341,
+        "reasoning": 170
+      },
+      "clients": [
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 24766,
+            "output": 99,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 80
+          },
+          "cost": 0.015253399999999999,
+          "messages": 1
+        },
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 8
+        },
+        {
+          "client": "openclaw",
+          "modelId": "minimax-m2.5",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 5801755,
+            "output": 29972,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 1.8124593,
+          "messages": 119
+        },
+        {
+          "client": "openclaw",
+          "modelId": "glm-4.7",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 6195805,
+            "output": 31464,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 3.7867037999999997,
+          "messages": 136
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.3-codex",
+          "providerId": "fox",
+          "tokens": {
+            "input": 10443,
+            "output": 134,
+            "cacheRead": 6528,
+            "cacheWrite": 0,
+            "reasoning": 90
+          },
+          "cost": 0.02255365,
+          "messages": 1
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 60,
+            "output": 393,
+            "cacheRead": 9219,
+            "cacheWrite": 34341,
+            "reasoning": 0
+          },
+          "cost": 0.13761945,
+          "messages": 2
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-haiku-4-5",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 9143,
+            "output": 221,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.010248,
+          "messages": 1
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 2124319,
+            "output": 11554,
+            "cacheRead": 945824,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.4779319999999999,
+          "messages": 76
+        }
+      ]
+    },
+    {
+      "date": "2026-03-08",
+      "totals": {
+        "tokens": 3469849,
+        "cost": 3.3499654000000003,
+        "messages": 115
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 834621,
+        "output": 16472,
+        "cacheRead": 2618756,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 6
+        },
+        {
+          "client": "openclaw",
+          "modelId": "openai/gpt-5.4",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 185948,
+            "output": 4629,
+            "cacheRead": 519296,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.664129,
+          "messages": 31
+        },
+        {
+          "client": "openclaw",
+          "modelId": "anthropic/claude-sonnet-4-6",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 624223,
+            "output": 11712,
+            "cacheRead": 2099460,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 2.6781870000000003,
+          "messages": 44
+        },
+        {
+          "client": "openclaw",
+          "modelId": "glm-4.7",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 8
+        },
+        {
+          "client": "openclaw",
+          "modelId": "minimax-m2.5",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 24450,
+            "output": 131,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0076494,
+          "messages": 25
+        },
+        {
+          "client": "openclaw",
+          "modelId": "gateway-injected",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-03-09",
+      "totals": {
+        "tokens": 247427,
+        "cost": 0.0905653,
+        "messages": 21
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 135398,
+        "output": 989,
+        "cacheRead": 111040,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 117198,
+            "output": 589,
+            "cacheRead": 62144,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0268413,
+          "messages": 8
+        },
+        {
+          "client": "openclaw",
+          "modelId": "openai/gpt-5.4",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 18200,
+            "output": 400,
+            "cacheRead": 48896,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.063724,
+          "messages": 4
+        },
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 9
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "totals": {
+        "tokens": 704847,
+        "cost": 0.59131,
+        "messages": 29
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 312227,
+        "output": 5628,
+        "cacheRead": 386992,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 152687,
+            "output": 817,
+            "cacheRead": 95792,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.035735499999999996,
+          "messages": 10
+        },
+        {
+          "client": "openclaw",
+          "modelId": "anthropic/claude-sonnet-4-6",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 23519,
+            "output": 84,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.071817,
+          "messages": 1
+        },
+        {
+          "client": "openclaw",
+          "modelId": "openai/gpt-5.4",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 136021,
+            "output": 4727,
+            "cacheRead": 291200,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.4837575,
+          "messages": 18
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "totals": {
+        "tokens": 10052459,
+        "cost": 10.0342961,
+        "messages": 220
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 775798,
+        "output": 63422,
+        "cacheRead": 7767178,
+        "cacheWrite": 1445480,
+        "reasoning": 581
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5.3-codex",
+          "providerId": "fox",
+          "tokens": {
+            "input": 24922,
+            "output": 683,
+            "cacheRead": 6912,
+            "cacheWrite": 0,
+            "reasoning": 581
+          },
+          "cost": 0.06251910000000001,
+          "messages": 2
+        },
+        {
+          "client": "openclaw",
+          "modelId": "anthropic/claude-sonnet-4-6",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 67599,
+            "output": 1894,
+            "cacheRead": 275525,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.31386450000000005,
+          "messages": 13
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-haiku-4-5",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 393147,
+            "output": 11485,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.4505719999999999,
+          "messages": 27
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 7312,
+            "output": 36885,
+            "cacheRead": 5938700,
+            "cacheWrite": 1404520,
+            "reasoning": 0
+          },
+          "cost": 7.623771,
+          "messages": 116
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-opus-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 1078,
+            "output": 2674,
+            "cacheRead": 69817,
+            "cacheWrite": 40960,
+            "reasoning": 0
+          },
+          "cost": 0.3631485,
+          "messages": 11
+        },
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 4
+        },
+        {
+          "client": "openclaw",
+          "modelId": "openai/gpt-5.4",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 281740,
+            "output": 9801,
+            "cacheRead": 1476224,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 1.220421,
+          "messages": 47
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "totals": {
+        "tokens": 31930586,
+        "cost": 23.679760849999997,
+        "messages": 385
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 111464,
+        "output": 115801,
+        "cacheRead": 28348192,
+        "cacheWrite": 3354949,
+        "reasoning": 180
+      },
+      "clients": [
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 5
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-opus-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 26,
+            "output": 18392,
+            "cacheRead": 1056329,
+            "cacheWrite": 138638,
+            "reasoning": 0
+          },
+          "cost": 1.854582,
+          "messages": 23
+        },
+        {
+          "client": "gemini",
+          "modelId": "gemini-3.1-pro-preview",
+          "providerId": "google",
+          "tokens": {
+            "input": 22518,
+            "output": 21,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 180
+          },
+          "cost": 0.047448,
+          "messages": 2
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 23258,
+            "output": 89830,
+            "cacheRead": 27042619,
+            "cacheWrite": 3187007,
+            "reasoning": 0
+          },
+          "cost": 21.481285949999997,
+          "messages": 341
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-haiku-4-5",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 2339,
+            "output": 5823,
+            "cacheRead": 121884,
+            "cacheWrite": 29304,
+            "reasoning": 0
+          },
+          "cost": 0.0802724,
+          "messages": 7
+        },
+        {
+          "client": "openclaw",
+          "modelId": "anthropic/claude-sonnet-4-6",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        },
+        {
+          "client": "openclaw",
+          "modelId": "openai/gpt-5.4",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 63323,
+            "output": 1735,
+            "cacheRead": 127360,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.2161725,
+          "messages": 6
+        }
+      ]
+    },
+    {
+      "date": "2026-03-13",
+      "totals": {
+        "tokens": 103198,
+        "cost": 0.062082,
+        "messages": 92
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 103096,
+        "output": 102,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 4
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 75
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 103096,
+            "output": 102,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.062082,
+          "messages": 2
+        },
+        {
+          "client": "openclaw",
+          "modelId": "anthropic/claude-sonnet-4-6",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 5
+        },
+        {
+          "client": "openclaw",
+          "modelId": "openai/gpt-5.4",
+          "providerId": "openrouter",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 6
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "totals": {
+        "tokens": 15977647,
+        "cost": 10.0422917,
+        "messages": 252
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 15710991,
+        "output": 49907,
+        "cacheRead": 212360,
+        "cacheWrite": 0,
+        "reasoning": 4389
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "fox",
+          "tokens": {
+            "input": 306549,
+            "output": 4014,
+            "cacheRead": 96256,
+            "cacheWrite": 0,
+            "reasoning": 2238
+          },
+          "cost": 0.8842165000000002,
+          "messages": 7
+        },
+        {
+          "client": "gemini",
+          "modelId": "gemini-3.1-pro-preview",
+          "providerId": "google",
+          "tokens": {
+            "input": 38051,
+            "output": 2084,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 972
+          },
+          "cost": 0.112774,
+          "messages": 2
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 8
+        },
+        {
+          "client": "claude",
+          "modelId": "doubao-seed-2.0-code",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 453590,
+            "output": 615,
+            "cacheRead": 116104,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 14
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 14863622,
+            "output": 40842,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 9.0080256,
+          "messages": 218
+        },
+        {
+          "client": "qwen",
+          "modelId": "glm-4.7",
+          "providerId": "qwen",
+          "tokens": {
+            "input": 49179,
+            "output": 2352,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 1179
+          },
+          "cost": 0.0372756,
+          "messages": 3
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "totals": {
+        "tokens": 1413425,
+        "cost": 2.04003,
+        "messages": 13
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 875433,
+        "output": 12591,
+        "cacheRead": 513895,
+        "cacheWrite": 0,
+        "reasoning": 11506
+      },
+      "clients": [
+        {
+          "client": "gemini",
+          "modelId": "gemini-3.1-pro-preview",
+          "providerId": "google",
+          "tokens": {
+            "input": 875433,
+            "output": 12591,
+            "cacheRead": 513895,
+            "cacheWrite": 0,
+            "reasoning": 11506
+          },
+          "cost": 2.04003,
+          "messages": 13
+        }
+      ]
+    },
+    {
+      "date": "2026-03-18",
+      "totals": {
+        "tokens": 10486858,
+        "cost": 6.779157300000002,
+        "messages": 216
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 10448592,
+        "output": 24227,
+        "cacheRead": 13440,
+        "cacheWrite": 0,
+        "reasoning": 599
+      },
+      "clients": [
+        {
+          "client": "gemini",
+          "modelId": "gemini-3.1-pro-preview",
+          "providerId": "google",
+          "tokens": {
+            "input": 24973,
+            "output": 83,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 93
+          },
+          "cost": 0.052058,
+          "messages": 1
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "fox",
+          "tokens": {
+            "input": 277815,
+            "output": 960,
+            "cacheRead": 13440,
+            "cacheWrite": 0,
+            "reasoning": 360
+          },
+          "cost": 0.7176975000000001,
+          "messages": 4
+        },
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 200781,
+            "output": 174,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 146
+          },
+          "cost": 0.12117259999999999,
+          "messages": 2
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 9730383,
+            "output": 22727,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 5.888229200000001,
+          "messages": 166
+        },
+        {
+          "client": "claude",
+          "modelId": "doubao-seed-2.0-code",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 214640,
+            "output": 283,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 8
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 31
+        },
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 4
+        }
+      ]
+    },
+    {
+      "date": "2026-03-19",
+      "totals": {
+        "tokens": 129940537,
+        "cost": 80.75832050000001,
+        "messages": 2306
+      },
+      "intensity": 4,
+      "tokenBreakdown": {
+        "input": 128946442,
+        "output": 515200,
+        "cacheRead": 462159,
+        "cacheWrite": 0,
+        "reasoning": 16736
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        },
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 5004709,
+            "output": 18712,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 5821
+          },
+          "cost": 3.0567979999999997,
+          "messages": 38
+        },
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 9
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 121514183,
+            "output": 476786,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 73.95743900000001,
+          "messages": 1957
+        },
+        {
+          "client": "claude",
+          "modelId": "doubao-seed-code",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 656607,
+            "output": 3064,
+            "cacheRead": 97760,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 19
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "fox",
+          "tokens": {
+            "input": 1116237,
+            "output": 11832,
+            "cacheRead": 163712,
+            "cacheWrite": 0,
+            "reasoning": 5379
+          },
+          "cost": 3.0896855000000003,
+          "messages": 14
+        },
+        {
+          "client": "gemini",
+          "modelId": "gemini-3.1-pro-preview",
+          "providerId": "google",
+          "tokens": {
+            "input": 270457,
+            "output": 3921,
+            "cacheRead": 24567,
+            "cacheWrite": 0,
+            "reasoning": 5536
+          },
+          "cost": 0.654398,
+          "messages": 10
+        },
+        {
+          "client": "claude",
+          "modelId": "doubao-seed-2.0-code",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 384249,
+            "output": 885,
+            "cacheRead": 176120,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 18
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 240
+        }
+      ]
+    },
+    {
+      "date": "2026-03-20",
+      "totals": {
+        "tokens": 0,
+        "cost": 0.0,
+        "messages": 39
+      },
+      "intensity": 0,
+      "tokenBreakdown": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 39
+        }
+      ]
+    },
+    {
+      "date": "2026-03-21",
+      "totals": {
+        "tokens": 0,
+        "cost": 0.0,
+        "messages": 210
+      },
+      "intensity": 0,
+      "tokenBreakdown": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 210
+        }
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "totals": {
+        "tokens": 37327076,
+        "cost": 22.457731799999998,
+        "messages": 690
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 37238977,
+        "output": 69043,
+        "cacheRead": 19056,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 4
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 94
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 37176729,
+            "output": 68952,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 22.457731799999998,
+          "messages": 590
+        },
+        {
+          "client": "claude",
+          "modelId": "doubao-seed-2.0-code",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 62248,
+            "output": 91,
+            "cacheRead": 19056,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "totals": {
+        "tokens": 35118902,
+        "cost": 21.163987599999995,
+        "messages": 343
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 35060998,
+        "output": 57904,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 26
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 35060998,
+            "output": 57904,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 21.163987599999995,
+          "messages": 317
+        }
+      ]
+    },
+    {
+      "date": "2026-03-25",
+      "totals": {
+        "tokens": 50808965,
+        "cost": 28.760825750000002,
+        "messages": 574
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 30252617,
+        "output": 140908,
+        "cacheRead": 20381008,
+        "cacheWrite": 0,
+        "reasoning": 34432
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5.3-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 730315,
+            "output": 20763,
+            "cacheRead": 7406080,
+            "cacheWrite": 0,
+            "reasoning": 7505
+          },
+          "cost": 2.9698672499999996,
+          "messages": 65
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 23
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 27353648,
+            "output": 24601,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 16.466311,
+          "messages": 331
+        },
+        {
+          "client": "claude",
+          "modelId": "doubao-seed-2.0-code",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 400245,
+            "output": 1696,
+            "cacheRead": 606928,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 37
+        },
+        {
+          "client": "openclaw",
+          "modelId": "gateway-injected",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        },
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 5
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "openai",
+          "tokens": {
+            "input": 1768409,
+            "output": 93848,
+            "cacheRead": 12368000,
+            "cacheWrite": 0,
+            "reasoning": 26927
+          },
+          "cost": 9.324647500000001,
+          "messages": 112
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "totals": {
+        "tokens": 53572992,
+        "cost": 27.132103700000002,
+        "messages": 522
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 7729826,
+        "output": 241933,
+        "cacheRead": 44773008,
+        "cacheWrite": 753664,
+        "reasoning": 74561
+      },
+      "clients": [
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 2048,
+            "output": 3951,
+            "cacheRead": 1010199,
+            "cacheWrite": 683017,
+            "reasoning": 0
+          },
+          "cost": 2.9297824499999994,
+          "messages": 27
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.3-codex",
+          "providerId": "openai",
+          "tokens": {
+            "input": 2592912,
+            "output": 145914,
+            "cacheRead": 33548288,
+            "cacheWrite": 0,
+            "reasoning": 52428
+          },
+          "cost": 13.185334399999999,
+          "messages": 334
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4-mini",
+          "providerId": "openai",
+          "tokens": {
+            "input": 73617,
+            "output": 20870,
+            "cacheRead": 399616,
+            "cacheWrite": 0,
+            "reasoning": 2658
+          },
+          "cost": 0.19105994999999998,
+          "messages": 6
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "openai",
+          "tokens": {
+            "input": 2137244,
+            "output": 58515,
+            "cacheRead": 9056384,
+            "cacheWrite": 0,
+            "reasoning": 18140
+          },
+          "cost": 8.757031,
+          "messages": 112
+        },
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 6
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.1-codex-mini",
+          "providerId": "openai",
+          "tokens": {
+            "input": 820973,
+            "output": 6392,
+            "cacheRead": 702080,
+            "cacheWrite": 0,
+            "reasoning": 128
+          },
+          "cost": 0.23583525,
+          "messages": 9
+        },
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 2102072,
+            "output": 2749,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 1207
+          },
+          "cost": 1.2699463999999998,
+          "messages": 17
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-opus-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 960,
+            "output": 3542,
+            "cacheRead": 56441,
+            "cacheWrite": 70647,
+            "reasoning": 0
+          },
+          "cost": 0.56311425,
+          "messages": 10
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "totals": {
+        "tokens": 31679404,
+        "cost": 28.040155300000002,
+        "messages": 333
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 9953923,
+        "output": 108696,
+        "cacheRead": 18233436,
+        "cacheWrite": 3366748,
+        "reasoning": 16601
+      },
+      "clients": [
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 8246404,
+            "output": 22387,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 5747
+          },
+          "cost": 5.009737199999999,
+          "messages": 61
+        },
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 3
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "openai",
+          "tokens": {
+            "input": 1637577,
+            "output": 74017,
+            "cacheRead": 13391104,
+            "cacheWrite": 0,
+            "reasoning": 10854
+          },
+          "cost": 8.7147835,
+          "messages": 122
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.7",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 64008,
+            "output": 231,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.038912999999999996,
+          "messages": 2
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 35
+        },
+        {
+          "client": "claude",
+          "modelId": "claude-sonnet-4-6",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 5934,
+            "output": 12061,
+            "cacheRead": 4842332,
+            "cacheWrite": 3366748,
+            "reasoning": 0
+          },
+          "cost": 14.276721600000002,
+          "messages": 109
+        },
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-03-28",
+      "totals": {
+        "tokens": 0,
+        "cost": 0.0,
+        "messages": 2
+      },
+      "intensity": 0,
+      "tokenBreakdown": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-03-29",
+      "totals": {
+        "tokens": 0,
+        "cost": 0.0,
+        "messages": 2
+      },
+      "intensity": 0,
+      "tokenBreakdown": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "reasoning": 0
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "totals": {
+        "tokens": 27591324,
+        "cost": 4.68774968,
+        "messages": 798
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 8366605,
+        "output": 135516,
+        "cacheRead": 19085046,
+        "cacheWrite": 0,
+        "reasoning": 4157
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        },
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 7104409,
+            "output": 22102,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 4064
+          },
+          "cost": 4.320210599999999,
+          "messages": 49
+        },
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 17
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.5-air",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 242151,
+            "output": 6351,
+            "cacheRead": 2439926,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.12861408,
+          "messages": 58
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "openai",
+          "tokens": {
+            "input": 83846,
+            "output": 293,
+            "cacheRead": 94080,
+            "cacheWrite": 0,
+            "reasoning": 93
+          },
+          "cost": 0.23892500000000003,
+          "messages": 2
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-5.1",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 936199,
+            "output": 106770,
+            "cacheRead": 16551040,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 670
+        }
+      ]
+    },
+    {
+      "date": "2026-03-31",
+      "totals": {
+        "tokens": 38091741,
+        "cost": 2.66672199,
+        "messages": 878
+      },
+      "intensity": 1,
+      "tokenBreakdown": {
+        "input": 8553716,
+        "output": 133325,
+        "cacheRead": 29399073,
+        "cacheWrite": 0,
+        "reasoning": 5627
+      },
+      "clients": [
+        {
+          "client": "claude",
+          "modelId": "glm-4.5-air",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 115266,
+            "output": 3004,
+            "cacheRead": 1269473,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.06444179,
+          "messages": 32
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-5.1",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 4176054,
+            "output": 115565,
+            "cacheRead": 28129600,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 817
+        },
+        {
+          "client": "claude",
+          "modelId": "<synthetic>",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 1
+        },
+        {
+          "client": "opencode",
+          "modelId": "glm-4.7",
+          "providerId": "myprovider",
+          "tokens": {
+            "input": 4262396,
+            "output": 14756,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 5627
+          },
+          "cost": 2.6022802,
+          "messages": 26
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "totals": {
+        "tokens": 156080851,
+        "cost": 35.013675969999994,
+        "messages": 3257
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 12810963,
+        "output": 741503,
+        "cacheRead": 142507301,
+        "cacheWrite": 0,
+        "reasoning": 21084
+      },
+      "clients": [
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.5-air",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 694269,
+            "output": 88982,
+            "cacheRead": 13826149,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.6515184699999998,
+          "messages": 274
+        },
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "openai",
+          "tokens": {
+            "input": 6547531,
+            "output": 230354,
+            "cacheRead": 56887040,
+            "cacheWrite": 0,
+            "reasoning": 21084
+          },
+          "cost": 34.362157499999995,
+          "messages": 386
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-5.1",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 5569163,
+            "output": 422167,
+            "cacheRead": 71794112,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 2552
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 43
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "totals": {
+        "tokens": 89759692,
+        "cost": 23.064266000000003,
+        "messages": 1390
+      },
+      "intensity": 2,
+      "tokenBreakdown": {
+        "input": 7596932,
+        "output": 276238,
+        "cacheRead": 81865530,
+        "cacheWrite": 0,
+        "reasoning": 20992
+      },
+      "clients": [
+        {
+          "client": "codex",
+          "modelId": "gpt-5.4",
+          "providerId": "openai",
+          "tokens": {
+            "input": 4564570,
+            "output": 131030,
+            "cacheRead": 35078656,
+            "cacheWrite": 0,
+            "reasoning": 20992
+          },
+          "cost": 22.461419000000003,
+          "messages": 220
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-5.1",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 2450537,
+            "output": 96925,
+            "cacheRead": 32341184,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 828
+        },
+        {
+          "client": "openclaw",
+          "modelId": "delivery-mirror",
+          "providerId": "openclaw",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 4
+        },
+        {
+          "client": "claude",
+          "modelId": "glm-4.5-air",
+          "providerId": "anthropic",
+          "tokens": {
+            "input": 581825,
+            "output": 48283,
+            "cacheRead": 14445690,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.6028469999999999,
+          "messages": 315
+        },
+        {
+          "client": "openclaw",
+          "modelId": "ark-code-latest",
+          "providerId": "volcengine",
+          "tokens": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "reasoning": 0
+          },
+          "cost": 0.0,
+          "messages": 23
+        }
+      ]
+    }
+  ]
+}

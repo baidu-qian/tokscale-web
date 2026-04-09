@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokscale 看板</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-primary:#1a1a2e;
+  --bg-secondary:#16213e;
+  --bg-card:#0f3460;
+  --text-primary:#e0e0e0;
+  --text-secondary:#a0a0b0;
+  --accent:#00d2ff;
+  --border:#2a2a4a;
+  --card-shadow:0 4px 24px rgba(0,0,0,0.3);
+  --hover-bg:rgba(255,255,255,0.05);
+}
+[data-theme="light"]{
+  --bg-primary:#f5f5f5;
+  --bg-secondary:#ffffff;
+  --bg-card:#ffffff;
+  --text-primary:#333333;
+  --text-secondary:#666666;
+  --accent:#1890ff;
+  --border:#e0e0e0;
+  --card-shadow:0 2px 12px rgba(0,0,0,0.08);
+  --hover-bg:rgba(0,0,0,0.03);
+}
+html{font-size:14px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  background:var(--bg-primary);color:var(--text-primary);
+  line-height:1.6;min-height:100vh;
+  transition:background .3s,color .3s;
+}
+
+/* Header */
+.header{
+  background:var(--bg-secondary);
+  border-bottom:1px solid var(--border);
+  padding:12px 24px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:12px;
+  position:sticky;top:0;z-index:100;
+}
+.header-title{font-size:1.4rem;font-weight:700;color:var(--accent);margin-right:auto;white-space:nowrap}
+.header-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+.tab-group{display:flex;border-radius:6px;overflow:hidden;border:1px solid var(--border)}
+.tab-btn{
+  padding:6px 14px;cursor:pointer;font-size:.85rem;
+  background:transparent;color:var(--text-secondary);border:none;
+  transition:background .2s,color .2s;
+}
+.tab-btn:hover{background:var(--hover-bg)}
+.tab-btn.active{background:var(--accent);color:#fff}
+
+.client-select{
+  padding:6px 10px;border-radius:6px;
+  background:var(--bg-card);color:var(--text-primary);
+  border:1px solid var(--border);font-size:.85rem;cursor:pointer;
+  min-width:140px;
+}
+.client-select option{background:var(--bg-card);color:var(--text-primary)}
+
+.icon-btn{
+  width:34px;height:34px;border-radius:6px;border:1px solid var(--border);
+  background:transparent;color:var(--text-primary);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  transition:background .2s;
+}
+.icon-btn:hover{background:var(--hover-bg)}
+
+.last-update{font-size:.78rem;color:var(--text-secondary);white-space:nowrap}
+
+/* Main */
+.main{max-width:1400px;margin:0 auto;padding:20px 24px 60px}
+
+/* Loading */
+.loading-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,0.35);z-index:999;
+  align-items:center;justify-content:center;
+}
+.loading-overlay.show{display:flex}
+.spinner{
+  width:40px;height:40px;border:4px solid var(--border);
+  border-top-color:var(--accent);border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Cards Row */
+.cards-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.card{
+  flex:1;min-width:180px;
+  background:var(--bg-card);border-radius:12px;
+  padding:18px 20px;box-shadow:var(--card-shadow);
+  border:1px solid var(--border);
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,0.25)}
+.card-icon{font-size:1.5rem;margin-bottom:6px}
+.card-label{font-size:.78rem;color:var(--text-secondary);margin-bottom:4px}
+.card-value{font-size:1.6rem;font-weight:700;color:var(--text-primary)}
+
+/* Chart Sections */
+.section{
+  background:var(--bg-card);border-radius:12px;
+  padding:20px;margin-bottom:24px;
+  box-shadow:var(--card-shadow);border:1px solid var(--border);
+}
+.section-title{font-size:1rem;font-weight:600;margin-bottom:14px;color:var(--text-primary)}
+.charts-row{display:flex;gap:20px;flex-wrap:wrap}
+.chart-half{flex:1;min-width:280px}
+
+/* Table */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+thead{position:sticky;top:0;z-index:2}
+th{
+  background:var(--bg-secondary);color:var(--text-primary);
+  padding:10px 12px;text-align:left;white-space:nowrap;
+  border-bottom:2px solid var(--accent);cursor:pointer;user-select:none;
+}
+th:hover{background:var(--hover-bg)}
+th .sort-arrow{margin-left:4px;font-size:.7rem;opacity:.4}
+th.sorted .sort-arrow{opacity:1;color:var(--accent)}
+td{
+  padding:8px 12px;border-bottom:1px solid var(--border);
+  color:var(--text-primary);white-space:nowrap;
+}
+tr:nth-child(even) td{background:rgba(255,255,255,0.02)}
+[data-theme="light"] tr:nth-child(even) td{background:rgba(0,0,0,0.02)}
+tr:hover td{background:var(--hover-bg)}
+.td-cost{font-weight:600;color:var(--accent)}
+.td-num{font-variant-numeric:tabular-nums}
+
+/* Heatmap */
+.heatmap-container{width:100%;overflow-x:auto;padding:4px 0}
+.heatmap-svg{display:block;min-width:720px}
+
+/* Responsive */
+@media(max-width:768px){
+  .header{padding:10px 14px;gap:8px}
+  .header-title{font-size:1.1rem;width:100%;margin-right:0}
+  .header-controls{width:100%}
+  .main{padding:14px}
+  .card{min-width:140px;padding:14px}
+  .card-value{font-size:1.3rem}
+  .charts-row{flex-direction:column}
+  .chart-half{min-width:100%}
+}
+@media(max-width:480px){
+  .tab-btn{padding:5px 8px;font-size:.75rem}
+  .card{min-width:100%}
+}
+</style>
+</head>
+<body>
+
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div></div>
+
+<header class="header">
+  <div class="header-title">Tokscale 看板</div>
+  <div class="header-controls">
+    <div class="tab-group" id="rangeTabs">
+      <button class="tab-btn" data-range="today">今天</button>
+      <button class="tab-btn" data-range="week">本周</button>
+      <button class="tab-btn" data-range="month">本月</button>
+      <button class="tab-btn active" data-range="all">全部</button>
+    </div>
+    <select class="client-select" id="clientSelect">
+      <option value="">全部客户端</option>
+    </select>
+    <button class="icon-btn" id="refreshBtn" title="刷新">&#x1F504;</button>
+    <button class="icon-btn" id="themeBtn" title="切换主题">&#x1F319;</button>
+    <span class="last-update" id="lastUpdate">最后更新: --:--:--</span>
+  </div>
+</header>
+
+<div class="main">
+  <div class="cards-row" id="cardsRow">
+    <div class="card"><div class="card-icon">&#x1F4B0;</div><div class="card-label">总费用</div><div class="card-value" id="cardCost">--</div></div>
+    <div class="card"><div class="card-icon">&#x1F4CA;</div><div class="card-label">总Token</div><div class="card-value" id="cardTokens">--</div></div>
+    <div class="card"><div class="card-icon">&#x1F4AC;</div><div class="card-label">消息数</div><div class="card-value" id="cardMessages">--</div></div>
+    <div class="card"><div class="card-icon">&#x1F4C5;</div><div class="card-label">活跃天数</div><div class="card-value" id="cardDays">--</div></div>
+    <div class="card"><div class="card-icon">&#x1F525;</div><div class="card-label">日均费用</div><div class="card-value" id="cardDaily">--</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">&#x1F4C8; 月度费用趋势</div>
+    <div id="chartMonthly" style="width:100%;height:400px;min-height:250px"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">&#x1F4C8; 每日Token使用趋势</div>
+    <div id="chartDailyToken" style="width:100%;height:380px;min-height:250px"></div>
+  </div>
+
+  <div class="section">
+    <div class="charts-row">
+      <div class="chart-half">
+        <div class="section-title">&#x1F967; 客户端费用占比</div>
+        <div id="chartClient" style="width:100%;height:350px;min-height:250px"></div>
+      </div>
+      <div class="chart-half">
+        <div class="section-title">&#x1F967; 模型费用占比</div>
+        <div id="chartModel" style="width:100%;height:350px;min-height:250px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">&#x1F4CA; 月度Token构成</div>
+    <div id="chartToken" style="width:100%;height:350px;min-height:250px"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">&#x1F4C8; 每日活动热力图</div>
+    <div class="heatmap-container" id="heatmapContainer"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">&#x1F4CB; 详细数据</div>
+    <div class="table-wrap">
+      <table id="detailTable">
+        <thead>
+          <tr>
+            <th data-col="client">客户端 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="model">模型 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="provider">供应商 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="input">输入 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="output">输出 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="cacheRead">缓读 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="cacheWrite">缓写 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="messageCount">消息数 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+            <th data-col="cost">费用 <span class="sort-arrow">&#x25B2;&#x25BC;</span></th>
+          </tr>
+        </thead>
+        <tbody id="detailBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* ========== State ========== */
+var state = {
+  range: 'all',
+  client: '',
+  theme: 'dark',
+  summaryData: null,
+  monthlyData: null,
+  graphData: null,
+  sortCol: 'cost',
+  sortAsc: false
+};
+
+/* ========== Color Palette ========== */
+var palette = ['#00d2ff','#ff6b6b','#ffd93d','#6bcb77','#4d96ff','#ff6b9d','#c084fc','#fb923c','#34d399','#f472b6','#818cf8','#a3e635'];
+
+/* ========== ECharts Theme Helpers ========== */
+function getAxisColors(){
+  var isDark = state.theme === 'dark';
+  var textColor = isDark ? '#a0a0b0' : '#666666';
+  var lineColor = isDark ? '#2a2a4a' : '#e0e0e0';
+  var mainText = isDark ? '#e0e0e0' : '#333333';
+  return {textColor:textColor, lineColor:lineColor, mainText:mainText};
+}
+
+/* ========== Number Formatting ========== */
+function fmtTokens(n){
+  if(n>=1e6)return(n/1e6).toFixed(1)+'M';
+  if(n>=1e3)return(n/1e3).toFixed(1)+'K';
+  return n.toString();
+}
+function fmtCost(n){return'$'+n.toFixed(2)}
+function fmtNum(n){return n.toLocaleString()}
+
+/* ========== DOM References ========== */
+var $id = function(id){return document.getElementById(id)};
+var loadingOverlay = $id('loadingOverlay');
+var rangeTabs = $id('rangeTabs');
+var clientSelect = $id('clientSelect');
+var refreshBtn = $id('refreshBtn');
+var themeBtn = $id('themeBtn');
+var lastUpdateEl = $id('lastUpdate');
+var cardCost = $id('cardCost');
+var cardTokens = $id('cardTokens');
+var cardMessages = $id('cardMessages');
+var cardDays = $id('cardDays');
+var cardDaily = $id('cardDaily');
+var chartMonthlyEl = $id('chartMonthly');
+var chartClientEl = $id('chartClient');
+var chartModelEl = $id('chartModel');
+var chartTokenEl = $id('chartToken');
+var chartDailyTokenEl = $id('chartDailyToken');
+var heatmapContainer = $id('heatmapContainer');
+var detailBody = $id('detailBody');
+var detailTable = $id('detailTable');
+
+/* ========== Chart Instances ========== */
+var chartMonthly, chartClient, chartModel, chartToken, chartDailyToken;
+
+function initCharts(){
+  chartMonthly = echarts.init(chartMonthlyEl);
+  chartClient = echarts.init(chartClientEl);
+  chartModel = echarts.init(chartModelEl);
+  chartToken = echarts.init(chartTokenEl);
+  chartDailyToken = echarts.init(chartDailyTokenEl);
+}
+
+/* ========== Loading ========== */
+function showLoading(){loadingOverlay.classList.add('show')}
+function hideLoading(){loadingOverlay.classList.remove('show')}
+
+/* ========== Fetch Data ========== */
+function fetchAll(){
+  if(document.hidden)return;
+  showLoading();
+  var range = state.range;
+  var client = state.client;
+  var p1 = fetch('/api/summary?range='+encodeURIComponent(range)+'&client='+encodeURIComponent(client)).then(function(r){return r.json()});
+  var p2 = fetch('/api/monthly?range='+encodeURIComponent(range)).then(function(r){return r.json()});
+  var p3 = fetch('/api/graph?range='+encodeURIComponent(range)).then(function(r){return r.json()});
+
+  Promise.all([p1,p2,p3]).then(function(results){
+    state.summaryData = results[0];
+    state.monthlyData = results[1];
+    state.graphData = results[2];
+    render();
+    hideLoading();
+    var now = new Date();
+    lastUpdateEl.textContent = '\u6700\u540E\u66F4\u65B0: '+pad(now.getHours())+':'+pad(now.getMinutes())+':'+pad(now.getSeconds());
+  }).catch(function(err){
+    console.error('Fetch error:',err);
+    hideLoading();
+  });
+}
+
+function pad(n){return n<10?'0'+n:''+n}
+
+/* ========== Render All ========== */
+function render(){
+  renderCards();
+  renderMonthlyChart();
+  renderDailyTokenChart();
+  renderClientPie();
+  renderModelPie();
+  renderTokenChart();
+  renderHeatmap();
+  renderTable();
+  updateClientDropdown();
+}
+
+/* ========== Cards ========== */
+function renderCards(){
+  var entries = state.summaryData && state.summaryData.entries ? state.summaryData.entries : [];
+  var totalCost=0, totalTokens=0, totalMessages=0;
+  for(var i=0;i<entries.length;i++){
+    var e = entries[i];
+    totalCost += (e.cost||0);
+    totalTokens += (e.input||0)+(e.output||0)+(e.cacheRead||0)+(e.cacheWrite||0)+(e.reasoning||0);
+    totalMessages += (e.messageCount||0);
+  }
+  var graph = state.graphData;
+  var activeDays = graph && graph.summary ? (graph.summary.activeDays||0) : 0;
+  var totalDays = graph && graph.summary ? (graph.summary.totalDays||1) : 1;
+  if(totalDays===0) totalDays=1;
+  var daily = totalCost/totalDays;
+
+  cardCost.textContent = fmtCost(totalCost);
+  cardTokens.textContent = fmtTokens(totalTokens);
+  cardMessages.textContent = fmtNum(totalMessages);
+  cardDays.textContent = activeDays + '/' + totalDays;
+  cardDaily.textContent = fmtCost(daily);
+}
+
+/* ========== Monthly Cost Trend ========== */
+function renderMonthlyChart(){
+  var data = state.monthlyData && state.monthlyData.entries ? state.monthlyData.entries : [];
+  var months=[], costs=[], cumulative=[], cumSum=0;
+  for(var i=0;i<data.length;i++){
+    months.push(data[i].month);
+    cumSum += (data[i].cost||0);
+    costs.push(Math.round((data[i].cost||0)*100)/100);
+    cumulative.push(Math.round(cumSum*100)/100);
+  }
+  var c = getAxisColors();
+  chartMonthly.setOption({
+    tooltip:{trigger:'axis',backgroundColor:'rgba(0,0,0,0.8)',borderColor:'#333',textStyle:{color:'#fff'},
+      formatter:function(params){
+        var s='<b>'+params[0].axisValue+'</b><br/>';
+        for(var i=0;i<params.length;i++){
+          s+=params[i].marker+' '+params[i].seriesName+': $'+params[i].value.toFixed(2)+'<br/>';
+        }
+        return s;
+      }
+    },
+    legend:{data:['\u6708\u5EA6\u8D39\u7528','\u7D2F\u8BA1\u8D39\u7528'],bottom:0,textStyle:{color:c.textColor}},
+    grid:{left:70,right:70,top:20,bottom:40},
+    xAxis:{type:'category',data:months,boundaryGap:true,
+      axisLine:{lineStyle:{color:c.lineColor}},
+      axisLabel:{color:c.textColor},
+      splitLine:{show:false}
+    },
+    yAxis:[
+      {type:'value',name:'\u8D39\u7528 ($)',nameTextStyle:{color:c.textColor},
+        axisLine:{lineStyle:{color:c.lineColor}},
+        axisLabel:{color:c.textColor},
+        splitLine:{lineStyle:{color:c.lineColor}}
+      },
+      {type:'value',name:'\u7D2F\u8BA1 ($)',nameTextStyle:{color:c.textColor},
+        axisLine:{lineStyle:{color:c.lineColor}},
+        axisLabel:{color:c.textColor},
+        splitLine:{show:false}
+      }
+    ],
+    series:[
+      {name:'\u6708\u5EA6\u8D39\u7528',type:'bar',data:costs,itemStyle:{color:palette[0],borderRadius:[4,4,0,0]},barMaxWidth:40},
+      {name:'\u7D2F\u8BA1\u8D39\u7528',type:'line',yAxisIndex:1,data:cumulative,smooth:true,itemStyle:{color:palette[4]},lineStyle:{width:2},symbol:'circle',symbolSize:6}
+    ]
+  },true);
+}
+
+/* ========== Client Pie ========== */
+function renderClientPie(){
+  var entries = state.summaryData && state.summaryData.entries ? state.summaryData.entries : [];
+  var clientMap = {};
+  for(var i=0;i<entries.length;i++){
+    var cl = entries[i].client||'unknown';
+    clientMap[cl] = (clientMap[cl]||0) + (entries[i].cost||0);
+  }
+  var data = [];
+  for(var k in clientMap){
+    if(clientMap.hasOwnProperty(k)) data.push({name:k,value:Math.round(clientMap[k]*100)/100});
+  }
+  data.sort(function(a,b){return b.value-a.value});
+  var c = getAxisColors();
+  var borderColor = state.theme==='dark'?'#0f3460':'#ffffff';
+  chartClient.setOption({
+    tooltip:{trigger:'item',backgroundColor:'rgba(0,0,0,0.8)',borderColor:'#333',textStyle:{color:'#fff'},
+      formatter:function(p){return p.name+'<br/>\u8D39\u7528: $'+p.value.toFixed(2)+'<br/>\u5360\u6BD4: '+p.percent+'%'}
+    },
+    legend:{type:'scroll',orient:'vertical',right:10,top:20,bottom:20,textStyle:{color:c.textColor},pageTextStyle:{color:c.textColor}},
+    series:[{
+      type:'pie',radius:['40%','70%'],center:['40%','50%'],
+      avoidLabelOverlap:true,
+      itemStyle:{borderRadius:6,borderColor:borderColor,borderWidth:2},
+      label:{show:false},
+      emphasis:{label:{show:true,fontSize:13,fontWeight:'bold',color:c.mainText}},
+      data:data,
+      color:palette
+    }]
+  },true);
+}
+
+/* ========== Model Pie ========== */
+function renderModelPie(){
+  var entries = state.summaryData && state.summaryData.entries ? state.summaryData.entries : [];
+  var modelMap = {};
+  for(var i=0;i<entries.length;i++){
+    var m = entries[i].model||'unknown';
+    modelMap[m] = (modelMap[m]||0) + (entries[i].cost||0);
+  }
+  var allData = [];
+  for(var k in modelMap){
+    if(modelMap.hasOwnProperty(k)) allData.push({name:k,value:Math.round(modelMap[k]*100)/100});
+  }
+  allData.sort(function(a,b){return b.value-a.value});
+  var data = allData.slice(0,8);
+  if(allData.length>8){
+    var otherSum=0;
+    for(var j=8;j<allData.length;j++) otherSum+=allData[j].value;
+    data.push({name:'\u5176\u4ED6',value:Math.round(otherSum*100)/100});
+  }
+  var c = getAxisColors();
+  var borderColor = state.theme==='dark'?'#0f3460':'#ffffff';
+  chartModel.setOption({
+    tooltip:{trigger:'item',backgroundColor:'rgba(0,0,0,0.8)',borderColor:'#333',textStyle:{color:'#fff'},
+      formatter:function(p){return p.name+'<br/>\u8D39\u7528: $'+p.value.toFixed(2)+'<br/>\u5360\u6BD4: '+p.percent+'%'}
+    },
+    legend:{type:'scroll',orient:'vertical',right:10,top:20,bottom:20,textStyle:{color:c.textColor},pageTextStyle:{color:c.textColor}},
+    series:[{
+      type:'pie',radius:['40%','70%'],center:['40%','50%'],
+      avoidLabelOverlap:true,
+      itemStyle:{borderRadius:6,borderColor:borderColor,borderWidth:2},
+      label:{show:false},
+      emphasis:{label:{show:true,fontSize:13,fontWeight:'bold',color:c.mainText}},
+      data:data,
+      color:palette
+    }]
+  },true);
+}
+
+/* ========== Token Composition ========== */
+function renderTokenChart(){
+  var data = state.monthlyData && state.monthlyData.entries ? state.monthlyData.entries : [];
+  var months=[],inputArr=[],outputArr=[],cacheReadArr=[],cacheWriteArr=[];
+  for(var i=0;i<data.length;i++){
+    months.push(data[i].month);
+    inputArr.push(data[i].input||0);
+    outputArr.push(data[i].output||0);
+    cacheReadArr.push(data[i].cacheRead||0);
+    cacheWriteArr.push(data[i].cacheWrite||0);
+  }
+  var c = getAxisColors();
+  chartToken.setOption({
+    tooltip:{trigger:'axis',backgroundColor:'rgba(0,0,0,0.8)',borderColor:'#333',textStyle:{color:'#fff'},
+      formatter:function(params){
+        var s='<b>'+params[0].axisValue+'</b><br/>';
+        for(var i=0;i<params.length;i++){
+          s+=params[i].marker+' '+params[i].seriesName+': '+fmtTokens(params[i].value)+'<br/>';
+        }
+        return s;
+      }
+    },
+    legend:{data:['\u8F93\u5165','\u8F93\u51FA','\u7F13\u5B58\u8BFB','\u7F13\u5B58\u5199'],bottom:0,textStyle:{color:c.textColor}},
+    grid:{left:70,right:20,top:20,bottom:40},
+    xAxis:{type:'category',data:months,
+      axisLine:{lineStyle:{color:c.lineColor}},
+      axisLabel:{color:c.textColor},
+      splitLine:{show:false}
+    },
+    yAxis:{type:'value',
+      axisLabel:{formatter:function(v){return fmtTokens(v)},color:c.textColor},
+      splitLine:{lineStyle:{color:c.lineColor}},
+      axisLine:{lineStyle:{color:c.lineColor}},
+      nameTextStyle:{color:c.textColor}
+    },
+    series:[
+      {name:'\u8F93\u5165',type:'bar',stack:'tokens',data:inputArr,itemStyle:{color:'#4d96ff'}},
+      {name:'\u8F93\u51FA',type:'bar',stack:'tokens',data:outputArr,itemStyle:{color:'#6bcb77'}},
+      {name:'\u7F13\u5B58\u8BFB',type:'bar',stack:'tokens',data:cacheReadArr,itemStyle:{color:'#fb923c'}},
+      {name:'\u7F13\u5B58\u5199',type:'bar',stack:'tokens',data:cacheWriteArr,itemStyle:{color:'#c084fc'}}
+    ]
+  },true);
+}
+
+/* ========== Daily Token Trend ========== */
+function renderDailyTokenChart(){
+  var contributions = state.graphData && state.graphData.contributions ? state.graphData.contributions : [];
+  if(!contributions.length){
+    chartDailyToken.setOption({title:{text:'\u6682\u65E0\u6570\u636E',left:'center',top:'middle',textStyle:{color:getAxisColors().textColor}}},true);
+    return;
+  }
+
+  // Sort by date
+  var sorted = contributions.slice().sort(function(a,b){return a.date<b.date?-1:1});
+  var dates=[],inputArr=[],outputArr=[],cacheReadArr=[],cacheWriteArr=[];
+  for(var i=0;i<sorted.length;i++){
+    var c=sorted[i];
+    dates.push(c.date);
+    var tb=c.tokenBreakdown||{};
+    inputArr.push(tb.input||0);
+    outputArr.push(tb.output||0);
+    cacheReadArr.push(tb.cacheRead||0);
+    cacheWriteArr.push(tb.cacheWrite||0);
+  }
+
+  var ac=getAxisColors();
+  chartDailyToken.setOption({
+    tooltip:{trigger:'axis',backgroundColor:'rgba(0,0,0,0.8)',borderColor:'#333',textStyle:{color:'#fff'},
+      formatter:function(params){
+        var s='<b>'+params[0].axisValue+'</b><br/>';
+        var total=0;
+        for(var i=0;i<params.length;i++){
+          s+=params[i].marker+' '+params[i].seriesName+': '+fmtTokens(params[i].value)+'<br/>';
+          total+=params[i].value;
+        }
+        s+='<b>\u5408\u8BA1: '+fmtTokens(total)+'</b>';
+        return s;
+      }
+    },
+    legend:{data:['\u8F93\u5165','\u8F93\u51FA','\u7F13\u5B58\u8BFB','\u7F13\u5B58\u5199'],bottom:0,textStyle:{color:ac.textColor}},
+    grid:{left:80,right:20,top:20,bottom:40},
+    xAxis:{type:'category',data:dates,
+      axisLine:{lineStyle:{color:ac.lineColor}},
+      axisLabel:{color:ac.textColor,rotate:dates.length>15?45:0,fontSize:dates.length>15?10:11},
+      splitLine:{show:false}
+    },
+    yAxis:{type:'value',
+      axisLabel:{formatter:function(v){return fmtTokens(v)},color:ac.textColor},
+      splitLine:{lineStyle:{color:ac.lineColor,type:'dashed'}},
+      axisLine:{lineStyle:{color:ac.lineColor}}
+    },
+    series:[
+      {name:'\u8F93\u5165',type:'line',stack:'dt',areaStyle:{opacity:0.35},data:inputArr,itemStyle:{color:'#4d96ff'},lineStyle:{width:1.5},showSymbol:false,emphasis:{focus:'series'}},
+      {name:'\u8F93\u51FA',type:'line',stack:'dt',areaStyle:{opacity:0.35},data:outputArr,itemStyle:{color:'#6bcb77'},lineStyle:{width:1.5},showSymbol:false,emphasis:{focus:'series'}},
+      {name:'\u7F13\u5B58\u8BFB',type:'line',stack:'dt',areaStyle:{opacity:0.35},data:cacheReadArr,itemStyle:{color:'#fb923c'},lineStyle:{width:1.5},showSymbol:false,emphasis:{focus:'series'}},
+      {name:'\u7F13\u5B58\u5199',type:'line',stack:'dt',areaStyle:{opacity:0.35},data:cacheWriteArr,itemStyle:{color:'#c084fc'},lineStyle:{width:1.5},showSymbol:false,emphasis:{focus:'series'}}
+    ]
+  },true);
+}
+
+/* ========== Heatmap (GitHub-style Calendar) ========== */
+function renderHeatmap(){
+  var contributions = state.graphData && state.graphData.contributions ? state.graphData.contributions : [];
+  if(!contributions.length){
+    heatmapContainer.innerHTML='<div style="color:var(--text-secondary);padding:20px;text-align:center">\u6682\u65E0\u6570\u636E</div>';
+    return;
+  }
+
+  // Build date->data map
+  var dateMap = {};
+  var maxCost = 0;
+  for(var i=0;i<contributions.length;i++){
+    var item = contributions[i];
+    var d = item.date;
+    var cost = item.totals ? (item.totals.cost||0) : 0;
+    var tokens = item.totals ? (item.totals.tokens||0) : 0;
+    dateMap[d] = {cost:cost,tokens:tokens};
+    if(cost>maxCost) maxCost=cost;
+  }
+
+  // Determine date range
+  var sortedDates = contributions.map(function(c){return c.date}).sort();
+  var startDate = parseDate(sortedDates[0]);
+  var endDate = parseDate(sortedDates[sortedDates.length-1]);
+
+  // Align to full weeks: start from previous Monday, end on next Sunday
+  var startDow = startDate.getDay(); // 0=Sun, 1=Mon...
+  var offsetToMonday = (startDow === 0) ? 6 : (startDow - 1);
+  startDate.setDate(startDate.getDate() - offsetToMonday);
+  var endDow = endDate.getDay();
+  var offsetToSunday = (endDow === 0) ? 0 : (7 - endDow);
+  endDate.setDate(endDate.getDate() + offsetToSunday);
+
+  var cellSize = 13;
+  var cellGap = 3;
+  var labelWidth = 30;
+  var monthLabelHeight = 18;
+  var totalStep = cellSize + cellGap;
+
+  // Build week columns
+  var weeks = [];
+  var current = new Date(startDate.getTime());
+  while(current <= endDate){
+    var week = [];
+    for(var dow=0;dow<7;dow++){
+      var ds = formatDateStr(current);
+      week.push({date:ds,data:dateMap[ds]||null});
+      current.setDate(current.getDate()+1);
+    }
+    weeks.push(week);
+  }
+
+  var totalWeeks = weeks.length;
+  var svgWidth = labelWidth + totalWeeks * totalStep + 20;
+  var svgHeight = monthLabelHeight + 7 * totalStep + 20;
+
+  var svgParts = [];
+  svgParts.push('<svg class="heatmap-svg" width="'+svgWidth+'" height="'+svgHeight+'" xmlns="http://www.w3.org/2000/svg">');
+
+  // Style for hover
+  svgParts.push('<style>.hm-cell:hover{stroke:var(--text-primary);stroke-width:1.5;opacity:0.85}</style>');
+
+  // Month labels
+  var monthNames = ['1\u6708','2\u6708','3\u6708','4\u6708','5\u6708','6\u6708','7\u6708','8\u6708','9\u6708','10\u6708','11\u6708','12\u6708'];
+  var seenMonths = {};
+  for(var wi=0;wi<weeks.length;wi++){
+    var firstDayOfweek = parseDate(weeks[wi][0].date);
+    var mKey = firstDayOfweek.getFullYear()+'-'+firstDayOfweek.getMonth();
+    if(!seenMonths[mKey]){
+      // Show month label on the week that contains the 1st of the month
+      // or on the first week if not yet shown
+      var shown = false;
+      for(var di=0;di<7;di++){
+        var dd = parseDate(weeks[wi][di].date);
+        if(dd.getDate()<=7){
+          seenMonths[mKey]=true;
+          var mx = labelWidth + wi * totalStep;
+          svgParts.push('<text x="'+mx+'" y="'+(monthLabelHeight-3)+'" fill="var(--text-secondary)" font-size="11">'+monthNames[dd.getMonth()]+'</text>');
+          shown=true;
+          break;
+        }
+      }
+      if(!shown && wi===0){
+        seenMonths[mKey]=true;
+        var mx2 = labelWidth;
+        svgParts.push('<text x="'+mx2+'" y="'+(monthLabelHeight-3)+'" fill="var(--text-secondary)" font-size="11">'+monthNames[firstDayOfweek.getMonth()]+'</text>');
+      }
+    }
+  }
+
+  // Day-of-week labels (Mon, Wed, Fri)
+  var dayLabels = ['\u4E00','','\u4E09','','\u4E94','','\u65E5'];
+  for(var d=0;d<7;d++){
+    if(dayLabels[d]){
+      var ly = monthLabelHeight + d * totalStep + cellSize - 1;
+      svgParts.push('<text x="2" y="'+ly+'" fill="var(--text-secondary)" font-size="10">'+dayLabels[d]+'</text>');
+    }
+  }
+
+  // Color levels
+  var isDark = state.theme === 'dark';
+  var levels;
+  if(maxCost<=0) maxCost=1;
+  if(isDark){
+    levels = ['#16213e','#0e4429','#006d32','#26a641','#39d353'];
+  } else {
+    levels = ['#ebedf0','#9be9a8','#40c463','#30a14e','#216e39'];
+  }
+
+  function getColor(cost){
+    if(!cost||cost<=0) return levels[0];
+    var ratio = cost/maxCost;
+    if(ratio<0.15) return levels[0];
+    if(ratio<0.35) return levels[1];
+    if(ratio<0.6)  return levels[2];
+    if(ratio<0.85) return levels[3];
+    return levels[4];
+  }
+
+  // Draw cells
+  for(var w=0;w<weeks.length;w++){
+    for(var d2=0;d2<7;d2++){
+      var cell = weeks[w][d2];
+      var cx = labelWidth + w * totalStep;
+      var cy = monthLabelHeight + d2 * totalStep;
+      var color = cell.data ? getColor(cell.data.cost) : levels[0];
+      var titleText = cell.date;
+      if(cell.data){
+        titleText += ' | \u8D39\u7528: '+fmtCost(cell.data.cost)+' | Token: '+fmtTokens(cell.data.tokens);
+      } else {
+        titleText += ' | \u65E0\u6570\u636E';
+      }
+      svgParts.push('<rect class="hm-cell" x="'+cx+'" y="'+cy+'" width="'+cellSize+'" height="'+cellSize+'" rx="2" ry="2" fill="'+color+'"><title>'+titleText+'</title></rect>');
+    }
+  }
+
+  svgParts.push('</svg>');
+  heatmapContainer.innerHTML = svgParts.join('');
+}
+
+function parseDate(s){
+  var parts = s.split('-');
+  return new Date(parseInt(parts[0],10), parseInt(parts[1],10)-1, parseInt(parts[2],10));
+}
+
+function formatDateStr(d){
+  var y = d.getFullYear();
+  var m = d.getMonth()+1;
+  var dd = d.getDate();
+  return y+'-'+(m<10?'0'+m:''+m)+'-'+(dd<10?'0'+dd:''+dd);
+}
+
+/* ========== Detail Table ========== */
+function renderTable(){
+  var entries = state.summaryData && state.summaryData.entries ? state.summaryData.entries : [];
+  var sorted = entries.slice();
+  var col = state.sortCol;
+  var asc = state.sortAsc;
+  sorted.sort(function(a,b){
+    var va = a[col];
+    var vb = b[col];
+    if(va===undefined||va===null) va='';
+    if(vb===undefined||vb===null) vb='';
+    if(typeof va==='string' && typeof vb==='string'){
+      return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+    }
+    va = parseFloat(va)||0;
+    vb = parseFloat(vb)||0;
+    return asc ? va-vb : vb-va;
+  });
+
+  var html='';
+  for(var i=0;i<sorted.length;i++){
+    var e = sorted[i];
+    html+='<tr>';
+    html+='<td>'+esc(e.client||'')+'</td>';
+    html+='<td>'+esc(e.model||'')+'</td>';
+    html+='<td>'+esc(e.provider||'')+'</td>';
+    html+='<td class="td-num">'+fmtTokens(e.input||0)+'</td>';
+    html+='<td class="td-num">'+fmtTokens(e.output||0)+'</td>';
+    html+='<td class="td-num">'+fmtTokens(e.cacheRead||0)+'</td>';
+    html+='<td class="td-num">'+fmtTokens(e.cacheWrite||0)+'</td>';
+    html+='<td class="td-num">'+fmtNum(e.messageCount||0)+'</td>';
+    html+='<td class="td-num td-cost">'+fmtCost(e.cost||0)+'</td>';
+    html+='</tr>';
+  }
+  detailBody.innerHTML = html;
+
+  // Update sort indicators
+  var ths = detailTable.querySelectorAll('thead th');
+  for(var j=0;j<ths.length;j++){
+    var th = ths[j];
+    th.classList.remove('sorted');
+    if(th.getAttribute('data-col')===col){
+      th.classList.add('sorted');
+    }
+  }
+}
+
+function esc(s){
+  var div = document.createElement('div');
+  div.appendChild(document.createTextNode(s));
+  return div.innerHTML;
+}
+
+/* ========== Client Dropdown ========== */
+function updateClientDropdown(){
+  if(!state.graphData || !state.graphData.summary || !state.graphData.summary.clients) return;
+  var clients = state.graphData.summary.clients;
+  var currentVal = clientSelect.value;
+  var html = '<option value="">\u5168\u90E8\u5BA2\u6237\u7AEF</option>';
+  for(var i=0;i<clients.length;i++){
+    var sel = clients[i]===currentVal?' selected':'';
+    html+='<option value="'+esc(clients[i])+'"'+sel+'>'+esc(clients[i])+'</option>';
+  }
+  clientSelect.innerHTML = html;
+}
+
+/* ========== Event Handlers ========== */
+
+// Range tabs
+rangeTabs.addEventListener('click',function(e){
+  var btn = e.target.closest('.tab-btn');
+  if(!btn) return;
+  var tabs = rangeTabs.querySelectorAll('.tab-btn');
+  for(var i=0;i<tabs.length;i++) tabs[i].classList.remove('active');
+  btn.classList.add('active');
+  state.range = btn.getAttribute('data-range');
+  fetchAll();
+});
+
+// Client select
+clientSelect.addEventListener('change',function(){
+  state.client = clientSelect.value;
+  fetchAll();
+});
+
+// Refresh
+refreshBtn.addEventListener('click',function(){
+  fetchAll();
+});
+
+// Theme toggle
+themeBtn.addEventListener('click',function(){
+  if(state.theme==='dark'){
+    state.theme='light';
+    document.documentElement.setAttribute('data-theme','light');
+    themeBtn.innerHTML='&#x2600;&#xFE0F;';
+  } else {
+    state.theme='dark';
+    document.documentElement.setAttribute('data-theme','dark');
+    themeBtn.innerHTML='&#x1F319;';
+  }
+  render();
+});
+
+// Table sort
+detailTable.querySelector('thead').addEventListener('click',function(e){
+  var th = e.target.closest('th');
+  if(!th) return;
+  var col = th.getAttribute('data-col');
+  if(!col) return;
+  if(state.sortCol===col){
+    state.sortAsc = !state.sortAsc;
+  } else {
+    state.sortCol = col;
+    state.sortAsc = false;
+  }
+  renderTable();
+});
+
+// Resize handler
+var resizeTimer;
+window.addEventListener('resize',function(){
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function(){
+    chartMonthly.resize();
+    chartDailyToken.resize();
+    chartClient.resize();
+    chartModel.resize();
+    chartToken.resize();
+  },200);
+});
+
+// Visibility change: skip refresh when tab hidden, refresh when visible
+document.addEventListener('visibilitychange',function(){
+  if(!document.hidden){
+    fetchAll();
+  }
+});
+
+/* ========== Init ========== */
+function init(){
+  initCharts();
+  fetchAll();
+  // Auto refresh every 30 seconds
+  setInterval(function(){
+    if(!document.hidden){
+      fetchAll();
+    }
+  },30000);
+}
+
+// Wait for ECharts to be ready
+if(typeof echarts!=='undefined'){
+  init();
+} else {
+  window.addEventListener('load',init);
+}
+
+})();
+</script>
+</body>
+</html>
