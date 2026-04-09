@@ -4,6 +4,24 @@
 
 项目本身不直接计算成本数据，而是通过 HTTP API 调用 `npx tokscale`，再把结果展示成图表和明细表。
 
+## 页面截图
+
+下面两张是本地真实运行页面截图，不是示意图。用户通常看这两张就能最快判断项目是否符合预期：
+
+### 总览页
+
+![Tokscale Dashboard 总览](docs/screenshots/dashboard-overview-real.png)
+
+- 首屏直接给出总费用、总 Token、活跃天数、主要客户端和主要模型
+- 同一屏能看到月度费用趋势，以及客户端 / 模型的成本占比
+
+### 趋势与明细页
+
+![Tokscale Dashboard 细节](docs/screenshots/dashboard-full-real.png)
+
+- 第二屏补充每日 Token 趋势、活动热力图和明细表
+- 适合让用户快速理解：这个项目不只是“有图表”，还支持继续下钻到客户端、模型和 Provider 粒度
+
 ## 这个仓库是做什么的
 
 这个仓库提供了一个轻量的本地分析面板，核心用途是：
@@ -198,4 +216,3 @@ curl "http://127.0.0.1:8900/api/graph?range=month"
 - 个人查看本机 AI 编程客户端的 Token 与费用使用情况
 - 对比不同客户端或模型的成本占比
 - 快速把 `tokscale` 的 CLI 数据变成更直观的浏览器看板
-
