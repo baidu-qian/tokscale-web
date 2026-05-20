@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"context"
 	"embed"
 	"encoding/json"
@@ -79,6 +80,8 @@ func setCache(key string, data []byte) {
 // Validation
 // ---------------------------------------------------------------------------
 
+const cliTimeout = 120 * time.Second
+
 var validRanges = map[string]bool{
 	"all": true, "today": true, "week": true, "month": true,
 }
@@ -126,6 +129,12 @@ func runTokscale(ctx context.Context, args ...string) ([]byte, error) {
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return nil, fmt.Errorf("tokscale CLI failed: %w: %s", err, string(out))
+	}
+	// Strip any warning/prefix text that precedes the JSON output (e.g.
+	// "[tokscale] LiteLLM JSON parse failed: ...").  Find the first '{'
+	// and return only from that position onward.
+	if idx := bytes.IndexByte(out, '{'); idx > 0 {
+		out = out[idx:]
 	}
 	return out, nil
 }
@@ -206,7 +215,7 @@ func handleSummary(w http.ResponseWriter, r *http.Request) {
 		args = append(args, cf)
 	}
 
-	ctx, cancel := context.WithTimeout(r.Context(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(r.Context(), cliTimeout)
 	defer cancel()
 
 	log.Printf("[cli] npx tokscale %s", strings.Join(args, " "))
@@ -241,7 +250,7 @@ func handleMonthly(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ctx, cancel := context.WithTimeout(r.Context(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(r.Context(), cliTimeout)
 	defer cancel()
 
 	args := []string{"monthly", "--json", "--no-spinner"}
@@ -287,7 +296,7 @@ func handleGraph(w http.ResponseWriter, r *http.Request) {
 		args = append(args, tf)
 	}
 
-	ctx, cancel := context.WithTimeout(r.Context(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(r.Context(), cliTimeout)
 	defer cancel()
 
 	log.Printf("[cli] npx tokscale %s", strings.Join(args, " "))
